@@ -19,9 +19,9 @@ namespace stack_app
         }
 
         //Задание стека
-        private void Form1_Load(object sender, EventArgs e)
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            mystack = new MyStack<int>(8);
+            mystack = new MyStack<int>((int)numericUpDown1.Value);
         }
 
         private void push_btn_Click(object sender, EventArgs e)
@@ -33,9 +33,9 @@ namespace stack_app
         public void listBox1_Refresh()
         {
             listBox1.Items.Clear();
-            for (int i = mystack.Count()-1; i >= 0; i--) 
+            for (int i = mystack.Count-1; i >= 0; i--) 
             {
-                listBox1.Items.Add(mystack.Value(i));
+                listBox1.Items.Add(mystack.Values()[i]);
             }
         }
 

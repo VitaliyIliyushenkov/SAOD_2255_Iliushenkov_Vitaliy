@@ -10,34 +10,32 @@ namespace stack_app
     {
         private int _currentIndex; // текущий размер стека
         private T[] _dataArray; // данные стека
-        private int _stackMaxSize; //максимальное количество элементов в стеке
-                                   // конструктор
+       
         public MyStack(int stackMaxSize)
         {
-            _dataArray = new T[stackMaxSize];
-            _currentIndex = 0;
-            _stackMaxSize = stackMaxSize;
+            Capacity = stackMaxSize;
+            Count = 0;
         }
 
         // метод для получения размера стека
-        public int Count()
+        public int Count
         {
-            return _currentIndex;
+            get { return _currentIndex; }
+            set { _currentIndex = value; }
         }
         // метод для получения вместимости стека
-        public int Capacity()
+        public int Capacity
         {
-            return _stackMaxSize;
+            get { return _dataArray.Length; }
+            set { _dataArray = new T[value]; }
         }
 
         // добавление нового элемента
         public void Push(T item)
         {
-            // если текущий размер равен максимальному, то смещаем стек на одну позицию
-            // при этом первый элемент удаляется
-            if (_currentIndex == _stackMaxSize)
+            if (_currentIndex == Capacity)
             {
-                RebuildData();
+                throw new Exception("Stack is full");
             }
 
             _dataArray[_currentIndex] = item;
@@ -48,7 +46,7 @@ namespace stack_app
         public T Peek()
         {
             // если данных нет, выбрасываем исключение
-            if (Count() == 0)
+            if (Count == 0)
             {
                 throw new Exception("Stack is empty");
             }
@@ -59,33 +57,26 @@ namespace stack_app
         // извлечение элемента
         public T Pop()
         {
+            if (Count == 0)
+            {
+                throw new Exception("Stack is empty");
+            }
             var item = Peek();
             _currentIndex--;
+
             return item;
         }
 
         // очистка стека
         public void Clear()
         {
-            _dataArray = new T[_stackMaxSize];
+            _dataArray = new T[Capacity];
             _currentIndex = 0;
         }
 
-        private void RebuildData()
+        public T[] Values()
         {
-            var newData = new T[_stackMaxSize];
-            for (var i = 1; i < _dataArray.Length; i++)
-            {
-                newData[i - 1] = _dataArray[i];
-            }
-
-            _dataArray = newData;
-            _currentIndex = _stackMaxSize - 1;
-        }
-
-        public T Value(int i)
-        {
-            return _dataArray[i];
+            return _dataArray;
         }
     }
 }

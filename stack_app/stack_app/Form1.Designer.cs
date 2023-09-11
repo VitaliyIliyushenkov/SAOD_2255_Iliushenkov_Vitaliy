@@ -33,6 +33,8 @@
             this.push_btn = new System.Windows.Forms.Button();
             this.pop_btn = new System.Windows.Forms.Button();
             this.peek_btn = new System.Windows.Forms.Button();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox1
@@ -51,14 +53,14 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 12);
+            this.textBox1.Location = new System.Drawing.Point(12, 41);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 1;
             // 
             // push_btn
             // 
-            this.push_btn.Location = new System.Drawing.Point(12, 39);
+            this.push_btn.Location = new System.Drawing.Point(12, 69);
             this.push_btn.Name = "push_btn";
             this.push_btn.Size = new System.Drawing.Size(100, 40);
             this.push_btn.TabIndex = 2;
@@ -68,7 +70,7 @@
             // 
             // pop_btn
             // 
-            this.pop_btn.Location = new System.Drawing.Point(12, 131);
+            this.pop_btn.Location = new System.Drawing.Point(12, 161);
             this.pop_btn.Name = "pop_btn";
             this.pop_btn.Size = new System.Drawing.Size(100, 40);
             this.pop_btn.TabIndex = 3;
@@ -78,7 +80,7 @@
             // 
             // peek_btn
             // 
-            this.peek_btn.Location = new System.Drawing.Point(12, 85);
+            this.peek_btn.Location = new System.Drawing.Point(12, 115);
             this.peek_btn.Name = "peek_btn";
             this.peek_btn.Size = new System.Drawing.Size(100, 40);
             this.peek_btn.TabIndex = 4;
@@ -86,19 +88,28 @@
             this.peek_btn.UseVisualStyleBackColor = true;
             this.peek_btn.Click += new System.EventHandler(this.peek_btn_Click);
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(12, 13);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(100, 22);
+            this.numericUpDown1.TabIndex = 5;
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(243, 486);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.peek_btn);
             this.Controls.Add(this.pop_btn);
             this.Controls.Add(this.push_btn);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.listBox1);
             this.Name = "Form1";
-            this.Text = "Stack_view";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Text = "x";
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,6 +122,7 @@
         private System.Windows.Forms.Button push_btn;
         private System.Windows.Forms.Button pop_btn;
         private System.Windows.Forms.Button peek_btn;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
 
