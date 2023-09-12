@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,19 +22,34 @@ namespace stack_app
         //Задание стека
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            mystack = new MyStack<int>((int)numericUpDown1.Value);
+            try
+            {
+                mystack = new MyStack<int>((int)numericUpDown1.Value);
+            }
+            catch 
+            {
+                throw new Exception("Filling error");
+            }
         }
 
         private void push_btn_Click(object sender, EventArgs e)
         {
-            mystack.Push(Convert.ToInt32(textBox1.Text));
+            try
+            {
+                mystack.Push(Convert.ToInt32(textBox1.Text));
+            }
+            catch
+            {
+                throw new Exception("Transmission error");
+            }
+            
             listBox1_Refresh();
         }
         
-        public void listBox1_Refresh()
+        private void listBox1_Refresh()
         {
             listBox1.Items.Clear();
-            for (int i = mystack.Count-1; i >= 0; i--) 
+            for (int i = 0; i < mystack.Values().Count(); i++) 
             {
                 listBox1.Items.Add(mystack.Values()[i]);
             }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,13 +19,13 @@ namespace stack_app
         }
 
         // метод для получения размера стека
-        public int Count
+        private int Count
         {
             get { return _currentIndex; }
             set { _currentIndex = value; }
         }
         // метод для получения вместимости стека
-        public int Capacity
+        private int Capacity
         {
             get { return _dataArray.Length; }
             set { _dataArray = new T[value]; }
@@ -76,7 +77,12 @@ namespace stack_app
 
         public T[] Values()
         {
-            return _dataArray;
+            var items = new T[Count];
+            for (int i = Count-1; i >= 0; i--)
+            {
+                items[Count-i-1] = _dataArray[i];
+            }
+            return items;
         }
     }
 }
