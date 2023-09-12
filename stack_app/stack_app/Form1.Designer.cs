@@ -95,6 +95,7 @@
             this.numericUpDown1.Size = new System.Drawing.Size(100, 22);
             this.numericUpDown1.TabIndex = 5;
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            this.numericUpDown1.Minimum = 1;
             // 
             // Form1
             // 

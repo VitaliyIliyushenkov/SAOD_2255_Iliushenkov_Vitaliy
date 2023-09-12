@@ -36,7 +36,7 @@ namespace stack_app
         {
             if (_currentIndex == Capacity)
             {
-                throw new Exception("Stack is full");
+                throw new Exception();
             }
 
             _dataArray[_currentIndex] = item;
@@ -49,7 +49,7 @@ namespace stack_app
             // если данных нет, выбрасываем исключение
             if (Count == 0)
             {
-                throw new Exception("Stack is empty");
+                throw new Exception();
             }
 
             return _dataArray[_currentIndex - 1];
@@ -60,7 +60,7 @@ namespace stack_app
         {
             if (Count == 0)
             {
-                throw new Exception("Stack is empty");
+                throw new Exception();
             }
             var item = Peek();
             _currentIndex--;

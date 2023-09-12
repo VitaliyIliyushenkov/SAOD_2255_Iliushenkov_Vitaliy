@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -22,14 +23,8 @@ namespace stack_app
         //Задание стека
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            try
-            {
                 mystack = new MyStack<int>((int)numericUpDown1.Value);
-            }
-            catch 
-            {
-                throw new Exception("Filling error");
-            }
+                listBox1_Refresh();
         }
 
         private void push_btn_Click(object sender, EventArgs e)
@@ -38,9 +33,13 @@ namespace stack_app
             {
                 mystack.Push(Convert.ToInt32(textBox1.Text));
             }
-            catch
+            catch (FormatException)
             {
-                throw new Exception("Transmission error");
+                MessageBox.Show("Введите число");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Произошло переполнение стека");
             }
             
             listBox1_Refresh();
@@ -57,13 +56,27 @@ namespace stack_app
 
         private void pop_btn_Click(object sender, EventArgs e)
         {
-            textBox1.Text = mystack.Pop().ToString();
-            listBox1_Refresh();
+            try
+            {
+                textBox1.Text = mystack.Pop().ToString();
+                listBox1_Refresh();
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Cтек пустой");
+            }
         }
 
         private void peek_btn_Click(object sender, EventArgs e)
         {
-            textBox1.Text = mystack.Peek().ToString();
+            try
+            {
+                textBox1.Text = mystack.Peek().ToString();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Cтек пустой");
+            }
         }
     }
 }
