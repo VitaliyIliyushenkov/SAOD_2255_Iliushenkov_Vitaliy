@@ -22,15 +22,15 @@ namespace queue_app
             Capacity = Size;
             Count = 0;
         }
-        private int Count
+        public int Count
         {
             get { return count; }
-            set { count = value; }
+            private set { count = value; }
         }
-        private int Capacity
+        public int Capacity
         {
             get { return _Array.Length; }
-            set { _Array = new T[value]; }
+            private set { _Array = new T[value]; }
         }
         private bool IsFull()
         {
