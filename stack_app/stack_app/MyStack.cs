@@ -19,16 +19,16 @@ namespace stack_app
         }
 
         // метод для получения размера стека
-        private int Count
+        public int Count
         {
             get { return _currentIndex; }
-            set { _currentIndex = value; }
+            private set { _currentIndex = value; }
         }
         // метод для получения вместимости стека
-        private int Capacity
+        public int Capacity
         {
             get { return _dataArray.Length; }
-            set { _dataArray = new T[value]; }
+            private set { _dataArray = new T[value]; }
         }
 
         // добавление нового элемента
