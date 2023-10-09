@@ -60,7 +60,7 @@ namespace Vector_app
         {
             try
             {
-                tb_setvalue.Text = myvector.SetValue(Convert.ToInt32(tb_setvalue.Text)).ToString();
+                myvector.SetValue(Convert.ToInt32(tb_setvalue_index.Text), Convert.ToInt32(tb_setvalue_value.Text));
             }
             catch (FormatException)
             {
@@ -71,6 +71,7 @@ namespace Vector_app
                 MessageBox.Show($"Ошибка: {ex.Message}");
             }
             CapSize_Refresh();
+            listBox1_Refresh();
         }
 
         private void btn_resize_Click(object sender, EventArgs e)

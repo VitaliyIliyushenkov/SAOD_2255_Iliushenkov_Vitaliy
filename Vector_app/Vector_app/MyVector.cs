@@ -16,6 +16,12 @@ namespace Vector_app
             Capacity = 1;
             Size = 0;
         }
+
+        public T this[int index]
+        {
+            get { return _data[index]; }
+            set { _data[index] = value;}
+        }
         public MyVector(int max_size)
         {
             Capacity = max_size;
@@ -42,10 +48,10 @@ namespace Vector_app
            
         }
         
-        public T SetValue(int item)
+        public void SetValue(int index, T item)
         {
-            if(item < 0 ||  item > Size) throw new Exception("Индекс вне массива");
-            return _data[item];
+            if(index < 0 ||  index > Size) throw new Exception("Индекс вне массива");
+            _data[index] = item;
         }
 
         public void Resize(int newSize)

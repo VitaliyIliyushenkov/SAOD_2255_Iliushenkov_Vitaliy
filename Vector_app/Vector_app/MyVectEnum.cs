@@ -19,7 +19,10 @@ namespace Vector_app
             _data = data; this.size = size;
         }
         
-        public T Current { get { return _data[currentIndex]; } }
+        public T Current { 
+            get { return _data[currentIndex]; }
+            set { _data[currentIndex] = value; }
+        }
 
         object IEnumerator.Current{ get{ return Current; } }
 

@@ -35,7 +35,7 @@
             this.btn_reserve = new System.Windows.Forms.Button();
             this.btn_shrinkto = new System.Windows.Forms.Button();
             this.tb_add = new System.Windows.Forms.TextBox();
-            this.tb_setvalue = new System.Windows.Forms.TextBox();
+            this.tb_setvalue_index = new System.Windows.Forms.TextBox();
             this.tb_resize = new System.Windows.Forms.TextBox();
             this.tb_reserve = new System.Windows.Forms.TextBox();
             this.btn_random = new System.Windows.Forms.Button();
@@ -44,6 +44,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tb_size = new System.Windows.Forms.TextBox();
+            this.tb_setvalue_value = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,7 +72,7 @@
             // 
             // btn_setvalue
             // 
-            this.btn_setvalue.Location = new System.Drawing.Point(13, 43);
+            this.btn_setvalue.Location = new System.Drawing.Point(13, 54);
             this.btn_setvalue.Name = "btn_setvalue";
             this.btn_setvalue.Size = new System.Drawing.Size(75, 23);
             this.btn_setvalue.TabIndex = 2;
@@ -79,7 +82,7 @@
             // 
             // btn_resize
             // 
-            this.btn_resize.Location = new System.Drawing.Point(13, 73);
+            this.btn_resize.Location = new System.Drawing.Point(13, 122);
             this.btn_resize.Name = "btn_resize";
             this.btn_resize.Size = new System.Drawing.Size(75, 23);
             this.btn_resize.TabIndex = 3;
@@ -89,7 +92,7 @@
             // 
             // btn_reserve
             // 
-            this.btn_reserve.Location = new System.Drawing.Point(13, 103);
+            this.btn_reserve.Location = new System.Drawing.Point(13, 152);
             this.btn_reserve.Name = "btn_reserve";
             this.btn_reserve.Size = new System.Drawing.Size(75, 23);
             this.btn_reserve.TabIndex = 4;
@@ -99,7 +102,7 @@
             // 
             // btn_shrinkto
             // 
-            this.btn_shrinkto.Location = new System.Drawing.Point(13, 133);
+            this.btn_shrinkto.Location = new System.Drawing.Point(13, 182);
             this.btn_shrinkto.Name = "btn_shrinkto";
             this.btn_shrinkto.Size = new System.Drawing.Size(75, 23);
             this.btn_shrinkto.TabIndex = 5;
@@ -114,23 +117,23 @@
             this.tb_add.Size = new System.Drawing.Size(100, 22);
             this.tb_add.TabIndex = 6;
             // 
-            // tb_setvalue
+            // tb_setvalue_index
             // 
-            this.tb_setvalue.Location = new System.Drawing.Point(95, 44);
-            this.tb_setvalue.Name = "tb_setvalue";
-            this.tb_setvalue.Size = new System.Drawing.Size(100, 22);
-            this.tb_setvalue.TabIndex = 7;
+            this.tb_setvalue_index.Location = new System.Drawing.Point(95, 55);
+            this.tb_setvalue_index.Name = "tb_setvalue_index";
+            this.tb_setvalue_index.Size = new System.Drawing.Size(100, 22);
+            this.tb_setvalue_index.TabIndex = 7;
             // 
             // tb_resize
             // 
-            this.tb_resize.Location = new System.Drawing.Point(95, 74);
+            this.tb_resize.Location = new System.Drawing.Point(95, 123);
             this.tb_resize.Name = "tb_resize";
             this.tb_resize.Size = new System.Drawing.Size(100, 22);
             this.tb_resize.TabIndex = 8;
             // 
             // tb_reserve
             // 
-            this.tb_reserve.Location = new System.Drawing.Point(95, 102);
+            this.tb_reserve.Location = new System.Drawing.Point(95, 151);
             this.tb_reserve.Name = "tb_reserve";
             this.tb_reserve.Size = new System.Drawing.Size(100, 22);
             this.tb_reserve.TabIndex = 9;
@@ -148,6 +151,11 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(13, 416);
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
             this.numericUpDown1.TabIndex = 11;
@@ -157,7 +165,6 @@
             0,
             0});
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
-            this.numericUpDown1.Minimum = 1;
             // 
             // tb_capacity
             // 
@@ -191,11 +198,39 @@
             this.tb_size.Size = new System.Drawing.Size(100, 22);
             this.tb_size.TabIndex = 14;
             // 
+            // tb_setvalue_value
+            // 
+            this.tb_setvalue_value.Location = new System.Drawing.Point(95, 95);
+            this.tb_setvalue_value.Name = "tb_setvalue_value";
+            this.tb_setvalue_value.Size = new System.Drawing.Size(100, 22);
+            this.tb_setvalue_value.TabIndex = 16;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(122, 38);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(39, 16);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "index";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(122, 80);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 16);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "value";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(406, 450);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.tb_setvalue_value);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tb_size);
             this.Controls.Add(this.label1);
@@ -204,7 +239,7 @@
             this.Controls.Add(this.btn_random);
             this.Controls.Add(this.tb_reserve);
             this.Controls.Add(this.tb_resize);
-            this.Controls.Add(this.tb_setvalue);
+            this.Controls.Add(this.tb_setvalue_index);
             this.Controls.Add(this.tb_add);
             this.Controls.Add(this.btn_shrinkto);
             this.Controls.Add(this.btn_reserve);
@@ -229,7 +264,7 @@
         private System.Windows.Forms.Button btn_reserve;
         private System.Windows.Forms.Button btn_shrinkto;
         private System.Windows.Forms.TextBox tb_add;
-        private System.Windows.Forms.TextBox tb_setvalue;
+        private System.Windows.Forms.TextBox tb_setvalue_index;
         private System.Windows.Forms.TextBox tb_resize;
         private System.Windows.Forms.TextBox tb_reserve;
         private System.Windows.Forms.Button btn_random;
@@ -238,6 +273,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tb_size;
+        private System.Windows.Forms.TextBox tb_setvalue_value;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 
