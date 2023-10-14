@@ -35,7 +35,7 @@
             this.btn_at = new System.Windows.Forms.Button();
             this.btn_remove = new System.Windows.Forms.Button();
             this.btn_removeat = new System.Windows.Forms.Button();
-            this.bt_sort = new System.Windows.Forms.Button();
+            this.bt_insert = new System.Windows.Forms.Button();
             this.btn_random = new System.Windows.Forms.Button();
             this.tb_append = new System.Windows.Forms.TextBox();
             this.tb_prepend = new System.Windows.Forms.TextBox();
@@ -51,6 +51,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.tb_insert_index = new System.Windows.Forms.TextBox();
+            this.tb_insert_value = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_append
@@ -85,7 +89,7 @@
             // 
             // btn_toarray
             // 
-            this.btn_toarray.Location = new System.Drawing.Point(12, 315);
+            this.btn_toarray.Location = new System.Drawing.Point(12, 342);
             this.btn_toarray.Name = "btn_toarray";
             this.btn_toarray.Size = new System.Drawing.Size(107, 23);
             this.btn_toarray.TabIndex = 2;
@@ -123,14 +127,15 @@
             this.btn_removeat.UseVisualStyleBackColor = true;
             this.btn_removeat.Click += new System.EventHandler(this.btn_removeat_Click);
             // 
-            // bt_sort
+            // bt_insert
             // 
-            this.bt_sort.Location = new System.Drawing.Point(13, 286);
-            this.bt_sort.Name = "bt_sort";
-            this.bt_sort.Size = new System.Drawing.Size(106, 23);
-            this.bt_sort.TabIndex = 7;
-            this.bt_sort.Text = "Sort";
-            this.bt_sort.UseVisualStyleBackColor = true;
+            this.bt_insert.Location = new System.Drawing.Point(12, 313);
+            this.bt_insert.Name = "bt_insert";
+            this.bt_insert.Size = new System.Drawing.Size(106, 23);
+            this.bt_insert.TabIndex = 7;
+            this.bt_insert.Text = "Insert";
+            this.bt_insert.UseVisualStyleBackColor = true;
+            this.bt_insert.Click += new System.EventHandler(this.bt_insert_Click);
             // 
             // btn_random
             // 
@@ -229,7 +234,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 341);
+            this.label4.Location = new System.Drawing.Point(12, 368);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(0, 16);
             this.label4.TabIndex = 20;
@@ -252,11 +257,47 @@
             this.label6.TabIndex = 22;
             this.label6.Text = "Вывод:";
             // 
+            // tb_insert_index
+            // 
+            this.tb_insert_index.Location = new System.Drawing.Point(125, 313);
+            this.tb_insert_index.Name = "tb_insert_index";
+            this.tb_insert_index.Size = new System.Drawing.Size(24, 22);
+            this.tb_insert_index.TabIndex = 23;
+            // 
+            // tb_insert_value
+            // 
+            this.tb_insert_value.Location = new System.Drawing.Point(155, 313);
+            this.tb_insert_value.Name = "tb_insert_value";
+            this.tb_insert_value.Size = new System.Drawing.Size(71, 22);
+            this.tb_insert_value.TabIndex = 24;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(119, 294);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(34, 16);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "инд.";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(159, 294);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(42, 16);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "знач.";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(361, 450);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.tb_insert_value);
+            this.Controls.Add(this.tb_insert_index);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -272,7 +313,7 @@
             this.Controls.Add(this.tb_prepend);
             this.Controls.Add(this.tb_append);
             this.Controls.Add(this.btn_random);
-            this.Controls.Add(this.bt_sort);
+            this.Controls.Add(this.bt_insert);
             this.Controls.Add(this.btn_removeat);
             this.Controls.Add(this.btn_at);
             this.Controls.Add(this.btn_remove);
@@ -281,7 +322,7 @@
             this.Controls.Add(this.btn_prepend);
             this.Controls.Add(this.btn_append);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "List";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,7 +337,7 @@
         private System.Windows.Forms.Button btn_at;
         private System.Windows.Forms.Button btn_remove;
         private System.Windows.Forms.Button btn_removeat;
-        private System.Windows.Forms.Button bt_sort;
+        private System.Windows.Forms.Button bt_insert;
         private System.Windows.Forms.Button btn_random;
         private System.Windows.Forms.TextBox tb_append;
         private System.Windows.Forms.TextBox tb_prepend;
@@ -312,6 +353,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tb_insert_index;
+        private System.Windows.Forms.TextBox tb_insert_value;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }
 

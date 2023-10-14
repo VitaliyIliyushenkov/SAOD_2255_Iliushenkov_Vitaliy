@@ -74,6 +74,23 @@ namespace list_app
             }
         }
 
+        public bool Insert(int index, T value)
+        {
+            int i = 0;
+            ListNode<T> item = First;
+            while (item != null)
+            {
+                if (i == index)
+                {
+                    item.Value = value;
+                    return true;
+                }
+                item = item.Next;
+                i++;
+            }
+            throw new Exception("Неверный индекс!");
+        }
+
         public T[] ToArray()
         {
             T[] _data = new T[] { };

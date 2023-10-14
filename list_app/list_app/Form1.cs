@@ -157,5 +157,22 @@ namespace list_app
             }
             label4.Text += '}';
         }
+
+        private void bt_insert_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                list.Insert(Convert.ToInt32(tb_insert_index.Text), Convert.ToInt32(tb_insert_value.Text));
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Введите число");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка: {ex.Message}");
+            }
+            listBox1_Refresh();
+        }
     }
 }
