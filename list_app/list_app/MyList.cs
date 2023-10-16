@@ -74,7 +74,7 @@ namespace list_app
             }
         }
 
-        public bool Insert(int index, T value)
+        public bool SetValue(int index, T value)
         {
             int i = 0;
             ListNode<T> item = First;
@@ -83,6 +83,34 @@ namespace list_app
                 if (i == index)
                 {
                     item.Value = value;
+                    return true;
+                }
+                item = item.Next;
+                i++;
+            }
+            throw new Exception("Неверный индекс!");
+        }
+
+        public bool Insert(int index, T value)
+        {
+            int i = 0;
+            ListNode<T> item = First;
+            while (item != null)
+            {
+                if (i == index)
+                {
+                    ListNode<T> new_item = new ListNode<T>() { Value = value, Next = item, Prev = item.Prev};
+                    if(item.Prev == null)
+                    {
+                        First = new_item;
+                        item.Prev = new_item;   
+                    }
+                    else
+                    {
+                        item.Prev.Next = new_item;
+                        item.Prev = new_item;
+                    }
+                    
                     return true;
                 }
                 item = item.Next;

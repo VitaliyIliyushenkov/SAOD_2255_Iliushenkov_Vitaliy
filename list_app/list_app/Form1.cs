@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -153,7 +154,7 @@ namespace list_app
             label4.Text = "{";
             foreach (var item in list.ToArray()) 
             {
-                label4.Text += item.ToString() + ", ";
+                label4.Text += '('+ item.ToString() + ')';
             }
             label4.Text += '}';
         }
@@ -173,6 +174,30 @@ namespace list_app
                 MessageBox.Show($"Ошибка: {ex.Message}");
             }
             listBox1_Refresh();
+        }
+
+        private void btn_setvalue_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                list.SetValue(Convert.ToInt32(tb_setvalue_index.Text), Convert.ToInt32(tb_setvalue_value.Text));
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Введите число");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка: {ex.Message}");
+            }
+            listBox1_Refresh();
+        }
+
+        private void btn_clear_Click(object sender, EventArgs e)
+        {
+            list = new MyList<int>();
+            label4.Text = "";
+            listBox1.Items.Clear();
         }
     }
 }
