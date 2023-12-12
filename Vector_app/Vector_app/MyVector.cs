@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,15 +20,20 @@ namespace Vector_app
 
         public T this[int index]
         {
-            get { return _data[index]; }
-            set { _data[index] = value;}
+            get { return At(index); }
+            set { SetValue(index, value); }
+        }
+
+        public T At(int index) 
+        {
+            return _data[index]; 
         }
         public MyVector(int max_size)
         {
             Capacity = max_size;
             Size = 0;
         }
-
+        
         public int Size
         {
             get { return size; }
@@ -59,18 +65,13 @@ namespace Vector_app
             if (newSize <= 0) throw new Exception("Неверное число");
 
             if (newSize < Size) Size = newSize;
-            Capacity = newSize;
+            Capacity = newSize * 2;
         }
 
         public void Reserve(int newCapacity)
         {
-            if (newCapacity <= 0) throw new Exception("Неверное число");
-
-            if (newCapacity < Size)
-            {
-                    Size = newCapacity;
-                    Capacity = Size;
-            }
+            if (newCapacity <= 0 || newCapacity < Size)
+                throw new Exception("Неверное число");
             else Capacity = newCapacity;
         }
 
