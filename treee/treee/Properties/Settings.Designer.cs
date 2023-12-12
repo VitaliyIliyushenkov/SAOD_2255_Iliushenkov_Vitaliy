@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace stack_app.Properties
+namespace treee.Properties
 {
 
 

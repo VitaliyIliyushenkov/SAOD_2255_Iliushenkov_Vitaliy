@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FF499EAE-20C8-4977-BA47-9A038D12CF8F}</ProjectGuid>
+    <ProjectGuid>{0967076E-5C7D-4706-AD6A-9272AE060503}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>queue_app</RootNamespace>
-    <AssemblyName>queue%29app</AssemblyName>
+    <RootNamespace>treee</RootNamespace>
+    <AssemblyName>treee</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -52,9 +52,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyQueue.cs" />
+    <Compile Include="MyBinaryTree.cs" />
+    <Compile Include="MyBSTDictionary.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MyTreeNode.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
