@@ -16,34 +16,8 @@ namespace list_app
 
         public T this[int index]
         {
-            get 
-            {
-                int i = 0;
-                ListNode<T> item = First;
-                while (item != null)
-                {
-                    if (i == index)
-                        return item.Value;
-                    item = item.Next;
-                    i++;
-                }
-                throw new Exception("Неверный индекс!");
-            }
-
-            set 
-            {
-                ListNode<T> item = First;
-                int i = 0;
-                while (item != null)
-                {
-                    if (i == index)
-                        item.Value = value;
-                    item = item.Next;
-                    i++;
-                }
-                if(index > i)
-                    throw new Exception("Неверный индекс!");
-            }
+            get {return At(index);}
+            set { SetValue(index, value);}
         }
 
         public void Append(T value)
@@ -94,6 +68,12 @@ namespace list_app
         public bool Insert(int index, T value)
         {
             int i = 0;
+            if(First == null || Last == null)
+            {
+                Last = new ListNode<T>() { Value = value };
+                First = Last;
+                return true;
+            }
             ListNode<T> item = First;
             while (item != null)
             {
@@ -121,17 +101,32 @@ namespace list_app
 
         public T[] ToArray()
         {
-            T[] _data = new T[] { };
+            T[] _data = new T[Size];
             ListNode<T> item = First;
             int i = 0;
             while (item != null)
             {
-                Array.Resize(ref _data, i+1);
                 _data[i] = item.Value;
                 item = item.Next;
                 i++;
             }
             return _data;
+        }
+
+        public int Size 
+        {
+            get 
+            {
+                ListNode<T> item = First;
+                int i = 0;
+                while (item != null)
+                {
+                    item = item.Next;
+                    i++;
+                }
+                return i;
+            }
+            set { }
         }
 
         public int Find(T value)
@@ -157,9 +152,9 @@ namespace list_app
                 {
                     if (First == Last)
                     {
-                        throw new Exception("Это последний эл-т!");
+                        First = null; Last = null;
+                        return true;
                     }
-                    
                     if (item == Last)
                     {
                         Last = item.Prev;
@@ -236,7 +231,7 @@ namespace list_app
 
         public IEnumerator<T> GetEnumerator()
         {
-            return new MyListEnumerator<T>(First);
+            return new MyListEnumerator<T>(First, Last);
         }
 
         IEnumerator IEnumerable.GetEnumerator()

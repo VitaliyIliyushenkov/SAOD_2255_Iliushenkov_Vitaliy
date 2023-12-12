@@ -12,10 +12,13 @@ namespace list_app
     {
         ListNode<T> First;
         ListNode<T> Now;
+        ListNode<T> Last;
 
-        public MyListEnumerator(ListNode<T> first)
+
+        public MyListEnumerator(ListNode<T> first, ListNode<T> last)
         {
             Now = first;
+            Last = last;
         }
         public T Current
         {
@@ -32,6 +35,10 @@ namespace list_app
 
         public bool MoveNext()
         {
+            if (First == Last)
+            {
+                return false;
+            }
             if (First == null)
             {
                 First = Now;
