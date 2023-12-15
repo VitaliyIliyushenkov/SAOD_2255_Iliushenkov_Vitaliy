@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace stack_app
+namespace hash_tabl
 {
     internal static class Program
     {

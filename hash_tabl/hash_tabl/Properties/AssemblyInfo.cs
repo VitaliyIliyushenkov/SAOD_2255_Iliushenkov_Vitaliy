@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанных со сборкой.
-[assembly: AssemblyTitle("queue)app")]
+[assembly: AssemblyTitle("hash_tabl")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("queue)app")]
+[assembly: AssemblyProduct("hash_tabl")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("ff499eae-20c8-4977-ba47-9a038d12cf8f")]
+[assembly: Guid("e5cb995f-63cc-4659-8596-a6e03b0d7144")]
 
 // Сведения о версии сборки состоят из указанных ниже четырех значений:
 //
