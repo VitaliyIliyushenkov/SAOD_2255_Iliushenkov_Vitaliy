@@ -8,115 +8,40 @@ using System.Threading.Tasks;
 
 namespace hash_tabl
 {
-    internal class MyHashTable<Tkey, TValue> : IEnumerable<HashItem<Tkey, TValue>>
+    internal class MyHashTable<Tkey, TValue> : IEnumerable<KeyValuePair<Tkey, TValue>>
     {
-        HashItem<Tkey, TValue>[] hash_mass = new HashItem<Tkey, TValue>[0];
+        List<KeyValuePair<Tkey, TValue>>[] hash_mass = new List<KeyValuePair<Tkey, TValue>>[10000]; //2,147,483,648
         public void Add(Tkey key, TValue value)
         {
-            int hash = HashFunction(key);
-            HashItem<Tkey, TValue> newItem = new HashItem<Tkey, TValue> { Key = key, Value = value, Hash = hash};
-
-
-            if (hash >= hash_mass.Length)
-                Array.Resize(ref hash_mass, hash+1);
+            int hash = Math.Abs(key.GetHashCode()) % 10000;
+            Console.WriteLine(hash);
 
             if (hash_mass[hash] == null)
-                hash_mass[hash] = newItem;
-            else
-                Add(hash_mass[hash], newItem);
+                hash_mass[hash] = new List<KeyValuePair<Tkey, TValue>>();
+            hash_mass[hash].Add(new KeyValuePair<Tkey, TValue>(key, value));
         }
-        private void Add(HashItem<Tkey, TValue> root, HashItem<Tkey, TValue> newItem)
+
+        public bool Find(Tkey key)
         {
-            if (root.Child == null)
-                root.Child = newItem;
-            else
-                Add(root.Child, newItem);
+            int hash = Math.Abs(key.GetHashCode()) % 10000;
+
+            if (hash_mass[hash] == null)
+                return false;
+            return true;
         }
-        public TValue Find(Tkey key) 
+
+        public void Delete(Tkey key)
         {
-            int hash = HashFunction(key);
-            if (hash >= hash_mass.Length || hash_mass[hash] == null)
+            int hash = Math.Abs(key.GetHashCode()) % 10000;
+
+            if (hash_mass[hash] == null)
                 throw new Exception("Эл-т не найден");
-            if (hash_mass[hash].Key.Equals(key))
-                return hash_mass[hash].Value;
-            else
-                return Find(hash_mass[hash].Child, key);
-        }
-        private TValue Find(HashItem<Tkey, TValue> root, Tkey key)
-        {
-            if (root == null)
-                throw new Exception("Эл-т не найден");
-            if (root.Key.Equals(key))
-                return root.Value;
-            else
-                return Find(root.Child, key);
-        }
-        public void Delete(Tkey key) 
-        {
-            int hash = HashFunction(key);
-            if (hash_mass[hash].Key.Equals(key))
-                if (hash_mass[hash].Child == null)
-                {
-                    hash_mass[hash] = null;
-                    if (hash == hash_mass.Length - 1)
-                    {
-                        int new_size = 0;
-                        foreach (var item in hash_mass)
-                        {
-                            if (item != null)
-                                new_size = item.Hash;
-                        }
-                        Array.Resize(ref hash_mass, new_size);
-                        Console.WriteLine(hash_mass.Length);
-                    }
-                }
-                else
-                    hash_mass[hash] = hash_mass[hash].Child;
-            else
-                Delete(hash_mass[hash].Child, key);
-        }
-        private void Delete(HashItem<Tkey, TValue> root, Tkey key)
-        {
-            if (root.Key.Equals(key))
-                if (root.Child == null)
-                    root = null;
-                else
-                    root = root.Child;
-            else
-                Delete(root.Child, key);
-        }
-        public int HashFunction(Tkey key)
-        {
-            string str = key.ToString();
-            int hash = 0;
-
-            for (int i = 0; i < str.Length; ++i)
-                hash += ((int)str[i]);
-            hash /= 45;
-
-            return hash;
-        }
-        public List<HashItem<Tkey, TValue>> ToList()
-        {
-            List<HashItem<Tkey, TValue>> list = new List<HashItem<Tkey, TValue>>();
-            foreach (var item in hash_mass)
-            {
-                HashItem<Tkey, TValue> root = item;
-                while (root != null)
-                {
-                    list.Add(root);
-                    root = root.Child;
-                }
-            }
-            return list;
+            hash_mass[hash].RemoveAt(hash_mass[hash].Count-1);
         }
 
-        public IEnumerator<HashItem<Tkey, TValue>> GetEnumerator()
+        public IEnumerator<KeyValuePair<Tkey, TValue>> GetEnumerator()
         {
-            foreach (var item in ToList())
-            {
-                yield return item;
-            }
+            return new MyHashEnum<Tkey, TValue>(hash_mass);
         }
 
         IEnumerator IEnumerable.GetEnumerator()

@@ -37,8 +37,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tb_find_key = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.tb_find_value = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.tb_find = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tb_delete_key = new System.Windows.Forms.TextBox();
             this.btn_delete = new System.Windows.Forms.Button();
@@ -63,7 +62,7 @@
             this.btn_find.TabIndex = 1;
             this.btn_find.Text = "Find";
             this.btn_find.UseVisualStyleBackColor = true;
-            this.btn_find.Click += new System.EventHandler(this.btn_find_Click);
+            this.btn_find.Click += new System.EventHandler(this.btn_find_Click_1);
             // 
             // tb_add_key
             // 
@@ -122,21 +121,12 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "=>";
             // 
-            // tb_find_value
+            // tb_find
             // 
-            this.tb_find_value.Location = new System.Drawing.Point(228, 90);
-            this.tb_find_value.Name = "tb_find_value";
-            this.tb_find_value.Size = new System.Drawing.Size(100, 22);
-            this.tb_find_value.TabIndex = 9;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(225, 66);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 16);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "value";
+            this.tb_find.Location = new System.Drawing.Point(228, 90);
+            this.tb_find.Name = "tb_find";
+            this.tb_find.Size = new System.Drawing.Size(100, 22);
+            this.tb_find.TabIndex = 9;
             // 
             // label6
             // 
@@ -162,7 +152,7 @@
             this.btn_delete.TabIndex = 11;
             this.btn_delete.Text = "Delete";
             this.btn_delete.UseVisualStyleBackColor = true;
-            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click_1);
             // 
             // listBox1
             // 
@@ -182,8 +172,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.tb_delete_key);
             this.Controls.Add(this.btn_delete);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.tb_find_value);
+            this.Controls.Add(this.tb_find);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tb_find_key);
@@ -194,7 +183,7 @@
             this.Controls.Add(this.btn_find);
             this.Controls.Add(this.btn_add);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Хэш-таблица";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,8 +200,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tb_find_key;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tb_find_value;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tb_find;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tb_delete_key;
         private System.Windows.Forms.Button btn_delete;

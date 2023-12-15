@@ -22,7 +22,7 @@ namespace hash_tabl
             listBox1.Items.Clear();
             foreach (var item in hashtable)
             {
-                listBox1.Items.Add( "{ Key = " + item.Key + ", Value = " + item.Value + ", Hash = " + item.Hash + "}, ");
+                listBox1.Items.Add("{ Key = " + item.Key + ", Value = " + item.Value + " }");
             }
         }
 
@@ -44,11 +44,11 @@ namespace hash_tabl
             tb_conclusion_Refresh();
         }
 
-        private void btn_find_Click(object sender, EventArgs e)
+        private void btn_find_Click_1(object sender, EventArgs e)
         {
             try
             {
-                tb_find_value.Text = hashtable.Find(tb_find_key.Text).ToString();
+                tb_find.Text = hashtable.Find(tb_find_key.Text).ToString();
             }
             catch (FormatException)
             {
@@ -60,12 +60,11 @@ namespace hash_tabl
             }
         }
 
-        private void btn_delete_Click(object sender, EventArgs e)
+        private void btn_delete_Click_1(object sender, EventArgs e)
         {
             try
             {
-               hashtable.Find(tb_delete_key.Text);
-               hashtable.Delete(tb_delete_key.Text);
+                hashtable.Delete(tb_delete_key.Text);
             }
             catch (FormatException)
             {
@@ -74,7 +73,7 @@ namespace hash_tabl
             catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка: {ex.Message}");
-            }
+            } 
 
             tb_conclusion_Refresh();
         }
