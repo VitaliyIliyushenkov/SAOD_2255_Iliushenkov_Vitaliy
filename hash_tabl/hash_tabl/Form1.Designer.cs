@@ -37,11 +37,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tb_find_key = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.tb_find = new System.Windows.Forms.TextBox();
+            this.tb_find_value = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tb_delete_key = new System.Windows.Forms.TextBox();
             this.btn_delete = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_add
@@ -121,12 +122,12 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "=>";
             // 
-            // tb_find
+            // tb_find_value
             // 
-            this.tb_find.Location = new System.Drawing.Point(228, 90);
-            this.tb_find.Name = "tb_find";
-            this.tb_find.Size = new System.Drawing.Size(100, 22);
-            this.tb_find.TabIndex = 9;
+            this.tb_find_value.Location = new System.Drawing.Point(228, 90);
+            this.tb_find_value.Name = "tb_find_value";
+            this.tb_find_value.Size = new System.Drawing.Size(100, 22);
+            this.tb_find_value.TabIndex = 9;
             // 
             // label6
             // 
@@ -163,6 +164,15 @@
             this.listBox1.Size = new System.Drawing.Size(348, 372);
             this.listBox1.TabIndex = 14;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(225, 66);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 16);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "value";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -172,7 +182,8 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.tb_delete_key);
             this.Controls.Add(this.btn_delete);
-            this.Controls.Add(this.tb_find);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.tb_find_value);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tb_find_key);
@@ -183,7 +194,7 @@
             this.Controls.Add(this.btn_find);
             this.Controls.Add(this.btn_add);
             this.Name = "Form1";
-            this.Text = "Хэш-таблица";
+            this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,11 +211,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tb_find_key;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tb_find;
+        private System.Windows.Forms.TextBox tb_find_value;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tb_delete_key;
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label5;
     }
 }
 

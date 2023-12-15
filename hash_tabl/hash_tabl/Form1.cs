@@ -48,7 +48,7 @@ namespace hash_tabl
         {
             try
             {
-                tb_find.Text = hashtable.Find(tb_find_key.Text).ToString();
+                tb_find_value.Text = hashtable.Find(tb_find_key.Text).Value.ToString();
             }
             catch (FormatException)
             {

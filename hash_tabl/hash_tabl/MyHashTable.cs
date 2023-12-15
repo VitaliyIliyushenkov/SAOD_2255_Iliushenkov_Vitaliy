@@ -14,29 +14,29 @@ namespace hash_tabl
         public void Add(Tkey key, TValue value)
         {
             int hash = Math.Abs(key.GetHashCode()) % 10000;
-            Console.WriteLine(hash);
 
             if (hash_mass[hash] == null)
                 hash_mass[hash] = new List<KeyValuePair<Tkey, TValue>>();
             hash_mass[hash].Add(new KeyValuePair<Tkey, TValue>(key, value));
         }
 
-        public bool Find(Tkey key)
+        public KeyValuePair<Tkey, TValue> Find(Tkey key)
         {
             int hash = Math.Abs(key.GetHashCode()) % 10000;
-
             if (hash_mass[hash] == null)
-                return false;
-            return true;
+                throw new Exception("Эл-т не найден");
+            foreach (var item in hash_mass[hash])
+            {
+                if(item.Key.Equals(key))
+                    return item;
+            }
+            throw new Exception("Эл-т не найден");
         }
 
         public void Delete(Tkey key)
         {
             int hash = Math.Abs(key.GetHashCode()) % 10000;
-
-            if (hash_mass[hash] == null)
-                throw new Exception("Эл-т не найден");
-            hash_mass[hash].RemoveAt(hash_mass[hash].Count-1);
+            hash_mass[hash].Remove(Find(key));
         }
 
         public IEnumerator<KeyValuePair<Tkey, TValue>> GetEnumerator()
